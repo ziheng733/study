@@ -11,6 +11,10 @@ public class DefaultMethods4Interfaces {
         default double sqrt(int a){
             return Math.sqrt(a);
         }
+
+        default void test(int b){
+            System.out.println(b);
+        }
     }
 
     public static void main(String[] args){
@@ -23,6 +27,7 @@ public class DefaultMethods4Interfaces {
 
         System.out.println("this should be 100: " + formula.calculate(100));
         System.out.println("this should be 10: " + formula.sqrt(100));
+        formula.test(123);
     }
 
 }
