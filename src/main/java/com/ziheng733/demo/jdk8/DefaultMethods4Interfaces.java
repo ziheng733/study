@@ -12,22 +12,9 @@ public class DefaultMethods4Interfaces {
             return Math.sqrt(a);
         }
 
-        default void test(int b){
-            System.out.println(b);
+        default int printB(int b){
+            return b;
         }
-    }
-
-    public static void main(String[] args){
-        Formula formula = new Formula() {
-            @Override
-            public double calculate(int a) {
-                return sqrt(a * 100);
-            }
-        };
-
-        System.out.println("this should be 100: " + formula.calculate(100));
-        System.out.println("this should be 10: " + formula.sqrt(100));
-        formula.test(123);
     }
 
 }
