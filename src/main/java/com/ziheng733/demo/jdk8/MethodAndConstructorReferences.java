@@ -5,30 +5,24 @@ package com.ziheng733.demo.jdk8;
  */
 public class MethodAndConstructorReferences {
 
-    public static void main(String[] args) {
-        demo1();
-        demo2();
-        demo3();
-    }
-
     /**
      * 类静态方法引用
      */
-    private static void demo1(){
+    public int str2int(String from){
         FunctionalInterfaces.Converter<String, Integer> converter = Integer::parseInt;
-        System.out.println(converter.convert("333"));
+        return converter.convert(from);
     }
 
     /**
      * 实例对象方法引用
      */
-    private static void demo2(){
+    public String str2starts(String from){
         Something something = new Something();
         FunctionalInterfaces.Converter<String, String> converter = something::startsWith;
-        System.out.println(converter.convert("hello"));
+        return converter.convert(from);
     }
 
-    static class Something{
+    class Something{
         String startsWith(String s){
             return String.valueOf(s.charAt(0));
         }
@@ -39,10 +33,10 @@ public class MethodAndConstructorReferences {
      * 我们只需要使用 Person::new 来获取Person类构造函数的引用，
      * Java编译器会自动根据PersonFactory.create方法的参数类型来选择合适的构造函数。
      */
-    private static void demo3(){
+    public Person createPerson(){
         PersonFactory<Person> personFactory = Person::new;
         Person person = personFactory.create("WEN", "ZIHENG");
-        System.out.println(person.getFirstName() + " " + person.getLastName());
+        return person;
     }
 
     static class Person{
