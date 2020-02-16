@@ -13,9 +13,4 @@ public class FunctionalInterfaces {
         // void anotherAbstractMethod();
     }
 
-    public static void main(String[] args) {
-        Converter<String, Integer> converter = from -> Integer.parseInt(from);
-        System.out.println(converter.convert("777"));
-    }
-
 }

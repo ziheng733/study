@@ -1,6 +1,5 @@
 package com.ziheng733.demo.jdk8;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -10,25 +9,19 @@ import java.util.List;
  */
 public class LambdaExpressions {
 
-    public static void main(String[] args){
-        List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");
-        oldSchool(names);
-        System.out.println(names);
-        newLambda(names);
-        System.out.println(names);
-    }
-
-    private static void oldSchool(List<String> names){
+    public List<String> oldSchoolCompare(List<String> names){
         Collections.sort(names, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 return o1.compareTo(o2);
             }
         });
+        return names;
     }
 
-    private static void newLambda(List<String> names){
+    public List<String> newCompare(List<String> names){
         Collections.sort(names, (o1, o2) -> o2.compareTo(o1));
+        return names;
     }
 
 

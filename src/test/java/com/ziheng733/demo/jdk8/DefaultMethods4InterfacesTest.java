@@ -1,5 +1,6 @@
 package com.ziheng733.demo.jdk8;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,11 @@ public class DefaultMethods4InterfacesTest {
                 return sqrt(a * 100);
             }
         };
+    }
+
+    @After
+    public void tearDown(){
+        formula = null;
     }
 
     @Test
